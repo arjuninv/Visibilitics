@@ -15,28 +15,30 @@ Decentralised Auction App  </title>
   <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
   <link href="./assets/demo/demo.css" rel="stylesheet" />
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
-
 </head>
 <body class=" ">
   <div class="wrapper ">
     <div class="sidebar">
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="active">
+          <li>
             <a href="./index.html">
               <i class="tim-icons icon-chart-pie-36"></i>
-              <p>Campaigns</p>
+              <p>Public Auctions</p>
+            </a>
+          </li>
+          <li class="active">
+            <a href="./MyAuctions.html">
+              <i class="tim-icons icon-atom"></i>
+              <p>My Auctions</p>
             </a>
           </li>
           <li>
-            <a href="./MyAuctions.html">
-              <i class="tim-icons icon-atom"></i>
-              <p>My Campaigns</p>
+            <a href="./map.html">
+              <i class="tim-icons icon-pin"></i>
+              <p>My Profile</p>
             </a>
           </li>
-
           <li>
             <a href="./notifications.html">
               <i class="tim-icons icon-bell-55"></i>
@@ -47,6 +49,12 @@ Decentralised Auction App  </title>
             <a href="./user.html">
               <i class="tim-icons icon-single-02"></i>
               <p>About</p>
+            </a>
+          </li>
+          <li>
+            <a href="./tables.html">
+              <i class="tim-icons icon-puzzle-10"></i>
+              <p>Terms and conditions</p>
             </a>
           </li>
 
@@ -116,14 +124,14 @@ Decentralised Auction App  </title>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
                   <li class="nav-link">
-                    <a href="./index.html" id="user1" class="nav-item dropdown-item">User 1</a>
+                    <a href="#" class="nav-item dropdown-item">Profile</a>
                   </li>
                   <li class="nav-link">
-                    <a href="./index.html?u=2" id="user2" class="nav-item dropdown-item">User 2</a>
+                    <a href="#" class="nav-item dropdown-item">Settings</a>
                   </li>
                   <div class="dropdown-divider"></div>
                   <li class="nav-link">
-                    <a href="#" class="nav-item dropdown-item">Settings</a>
+                    <a href="#" class="nav-item dropdown-item">Log out</a>
                   </li>
                 </ul>
               </li>
@@ -163,13 +171,11 @@ Decentralised Auction App  </title>
       </footer>
       </div>
     </div>
-    <script src="./assets/js/script.js"></script>
-    <script src="./assets/js/web3client.js"></script>
-
     <script src="./assets/js/core/jquery.min.js"></script>
     <script src="./assets/js/core/popper.min.js"></script>
     <script src="./assets/js/core/bootstrap.min.js"></script>
     <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
     <script src="./assets/js/plugins/chartjs.min.js"></script>
     <script src="./assets/js/plugins/bootstrap-notify.js"></script>
     <script src="./assets/js/black-dashboard.min.js?v=1.0.0" type="text/javascript"></script>
@@ -193,6 +199,7 @@ Decentralised Auction App  </title>
 
 
           $('.fixed-plugin a').click(function(event) {
+            // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
             if ($(this).hasClass('switch-trigger')) {
               if (event.stopPropagation) {
                 event.stopPropagation();
@@ -238,10 +245,12 @@ Decentralised Auction App  </title>
               blackDashboard.showSidebarMessage('Sidebar mini activated...');
             }
 
+            // we simulate the window Resize so the charts will get updated in realtime.
             var simulateWindowResize = setInterval(function() {
               window.dispatchEvent(new Event('resize'));
             }, 180);
 
+            // we stop the simulation of Window Resize after the animations are completed
             setTimeout(function() {
               clearInterval(simulateWindowResize);
             }, 1000);
