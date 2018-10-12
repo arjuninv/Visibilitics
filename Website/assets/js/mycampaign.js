@@ -315,14 +315,14 @@ const transactionObject = {
 
 
 window.addEventListener("load", function() {
+	url = new URL(window.location.href);
 
-	f(urlParams.has('u')){
-	  if(urlParams.get('u') == "2") {
+	if(location.search.indexOf('u=')>=0){
+	  if(url.searchParams.get('test') == "2") {
 	   var userid = 2;
-
+}
 	} else {
 	  var userid = 1;
-	}
 }
 
 if (typeof web3 !== "undefined") {
@@ -335,13 +335,13 @@ new Web3.providers.HttpProvider("http://127.0.0.1:7545")
 var list = document.getElementById("list");
 
 var contract = web3.eth.contract(abi).at(contract_address);
-contract.get_my_campaign_num.call(function(err, result){
+contract.get_my_campaign_num.call(userid, function(err, result){
   var g_my_campaign_num = result;
   for(var i=1; i<=g_my_campaign_num; i++){
 
     contract.get_my_campaigns.call(i, userid, function(err, result){
 
-   list.innerHTML += '<div class="card"><div class="card-header mb-5"><h3 class="card-title">' + result[1].toString() + '</h3><h5 class="card-category">Current views: ' + result[5].toString() + '</h5></div><div class="card-body"><p>$' + parseInt(result[3].toString(), 10) / parseInt(result[4].toString(), 10) + ' per view</p><br><button class="btn btn-primary btn-block" style="width:20%;">Promote Campaign</button></div></div>';     }) ;
+   list.innerHTML += '<div class="card"><div class="card-header mb-5"><h3 class="card-title">' + result[1].toString() + '</h3><h5 class="card-category">Current views: ' + result[5].toString() + '</h5></div><div class="card-body"><p>Expected Views: ' + parseInt(result[4].toString(), 10) + '<br>Ammount Paid: ' + parseInt(result[3].toString(), 10) + '</p><br></div></div>';     }) ;
   }
  }) ;
 
