@@ -2,8 +2,10 @@ document.addEventListener("DOMContentLoaded", function() {
   load();
 var input = document.getElementById("inlineFormInputGroup");
 
+/*
 var u1 = document.getElementById("user1");
 var u2 = document.getElementById("user2");
+
 
 if(urlParams.has('u')){
   if(urlParams.get('u') == "2") {
@@ -14,7 +16,7 @@ if(urlParams.has('u')){
   u1.style.textDecoration = "underline overline";;
   u2.style.textDecoration = "none";;
 }
-
+*/
 
 input.addEventListener("keyup", function(event) {
   event.preventDefault();
