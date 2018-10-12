@@ -11,6 +11,7 @@ contract Main {
         uint max_views;
         uint current_views;
     }
+
     struct viewData {
       uint index;
       uint views;
@@ -32,19 +33,26 @@ contract Main {
     mapping (uint => Campaign) public_list;
     mapping (uint => user_data) users;
 
+function get_public_list(uint _i) public returns (uint, string, uint, uint, uint){
+    return (public_list[_i].cid,public_list[_i].url, public_list[_i].price, public_list[_i].max_views, public_list[_i].current_views );
+}
+
 
 
  function Main () public {
     c_num = 0;
-    user_num=0;
+    user_num=2;  // Hard coded for demo purpose
+    createUser("User 1", 100); // Hard coded for demo purpose
+    createUser("User 2", 50); // Hard coded for demo purpose
   }
-	
-  function addCampaign (string _url,uint _price,uint _max_views, uint _uid) public {
+
+  function addCampaign (string _url,uint _price,uint _max_views, uint _uid) public returns (bool){
       c_num++;
       public_list[c_num] = Campaign(c_num, _url, _price, _max_views, 0);
       users[_uid].my_campaign_num +=1;
       users[_uid].my_campaign[users[_uid].my_campaign_num].index = c_num;
       users[_uid].my_campaign[users[_uid].my_campaign_num].views = 0;
+      return true;
   }
 
   function registerView(uint _index, uint _uid) public {

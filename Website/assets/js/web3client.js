@@ -167,6 +167,8 @@ const transactionObject = {
   gasPrice: 5
 };
 
+
+
 window.addEventListener("load", function() {
 if (typeof web3 !== "undefined") {
 window.web3 = new Web3(web3.currentProvider);
@@ -176,12 +178,13 @@ new Web3.providers.HttpProvider("http://127.0.0.1:7545")
 );
 }
 
-
-
 let contract = web3.eth.contract(abi).at(contract_address);
-contract.get_public_list.call(1, function(err, result){
-console.log(result[1].toString());
+
+contract.get_c_num.call(function(err, result){
+res =  result;
  }) ;
+ console.log(res);
+
 
 
 

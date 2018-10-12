@@ -29,10 +29,11 @@ input.addEventListener("keyup", function(event) {
 
 
 function load() {
+  /*
 	var theDiv = document.getElementById("searchresults");
   theDiv.innerHTML = "";
 	var search = document.getElementById("inlineFormInputGroup").value;
-/*
+
 var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {

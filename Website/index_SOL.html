@@ -5,17 +5,44 @@
 
       <script>
       	  const contract_address = "0x522acc2dc3b73435fb32a3d90ae5eaa7f9ca1c6f";
-          const abi =[
+          const abi = [
 	{
 		"constant": false,
-		"inputs": [],
-		"name": "get_c_num",
+		"inputs": [
+			{
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"name": "_ammount",
+				"type": "uint256"
+			}
+		],
+		"name": "createUser",
 		"outputs": [
 			{
 				"name": "",
 				"type": "uint256"
 			}
 		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_uid",
+				"type": "uint256"
+			},
+			{
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "takeCampaign",
+		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -52,17 +79,42 @@
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_a",
+				"name": "_index",
 				"type": "uint256"
-			}
-		],
-		"name": "add_c_num",
-		"outputs": [
+			},
 			{
-				"name": "",
+				"name": "_uid",
 				"type": "uint256"
 			}
 		],
+		"name": "registerView",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_url",
+				"type": "string"
+			},
+			{
+				"name": "_price",
+				"type": "uint256"
+			},
+			{
+				"name": "_max_views",
+				"type": "uint256"
+			},
+			{
+				"name": "_uid",
+				"type": "uint256"
+			}
+		],
+		"name": "addCampaign",
+		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
