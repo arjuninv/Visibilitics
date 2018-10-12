@@ -1,40 +1,5 @@
-const contract_address = "0x5c6f334fa689da645f34b3f89039c9a4c3fd5c2b";
+const contract_address = "0xa20800e128102c5de4cb75ceee213c2c5dc68a4e";
 const abi =[
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_url",
-				"type": "string"
-			},
-			{
-				"name": "_brand",
-				"type": "string"
-			},
-			{
-				"name": "_price",
-				"type": "uint256"
-			},
-			{
-				"name": "_max_views",
-				"type": "uint256"
-			},
-			{
-				"name": "_uid",
-				"type": "uint256"
-			}
-		],
-		"name": "addCampaign",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
 	{
 		"constant": false,
 		"inputs": [
@@ -60,90 +25,9 @@ const abi =[
 	},
 	{
 		"constant": false,
-		"inputs": [
-			{
-				"name": "_uid",
-				"type": "uint256"
-			}
-		],
-		"name": "get_ammount",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
 		"inputs": [],
 		"name": "get_c_num",
 		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_uid",
-				"type": "uint256"
-			}
-		],
-		"name": "get_my_campaign_num",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_i",
-				"type": "uint256"
-			},
-			{
-				"name": "_uid",
-				"type": "uint256"
-			}
-		],
-		"name": "get_my_campaigns",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			},
 			{
 				"name": "",
 				"type": "uint256"
@@ -204,6 +88,81 @@ const abi =[
 				"type": "uint256"
 			}
 		],
+		"name": "get_my_campaigns",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_uid",
+				"type": "uint256"
+			},
+			{
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "takeCampaign",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "user_num",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_i",
+				"type": "uint256"
+			},
+			{
+				"name": "_uid",
+				"type": "uint256"
+			}
+		],
 		"name": "get_taken_campaigns",
 		"outputs": [
 			{
@@ -239,16 +198,17 @@ const abi =[
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_index",
-				"type": "uint256"
-			},
-			{
 				"name": "_uid",
 				"type": "uint256"
 			}
 		],
-		"name": "registerView",
-		"outputs": [],
+		"name": "get_my_campaign_num",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -257,25 +217,36 @@ const abi =[
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_uid",
+				"name": "_url",
+				"type": "string"
+			},
+			{
+				"name": "_brand",
+				"type": "string"
+			},
+			{
+				"name": "_price",
 				"type": "uint256"
 			},
 			{
-				"name": "_index",
+				"name": "_max_views",
+				"type": "uint256"
+			},
+			{
+				"name": "_uid",
 				"type": "uint256"
 			}
 		],
-		"name": "takeCampaign",
-		"outputs": [],
+		"name": "addCampaign",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
-	},
-	{
-		"inputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
 	},
 	{
 		"constant": true,
@@ -292,9 +263,14 @@ const abi =[
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "user_num",
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_uid",
+				"type": "uint256"
+			}
+		],
+		"name": "get_ammount",
 		"outputs": [
 			{
 				"name": "",
@@ -302,8 +278,32 @@ const abi =[
 			}
 		],
 		"payable": false,
-		"stateMutability": "view",
+		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_index",
+				"type": "uint256"
+			},
+			{
+				"name": "_uid",
+				"type": "uint256"
+			}
+		],
+		"name": "registerView",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
 	}
 ];
 
@@ -312,7 +312,6 @@ const transactionObject = {
   gas: 529677,
   gasPrice: 5
 };
-
 
 window.addEventListener("load", function() {
 if (typeof web3 !== "undefined") {
@@ -330,9 +329,15 @@ contract.get_c_num.call(function(err, result){
   for(var i=1; i<=g_c_num; i++){
 
     contract.get_public_list.call(i, function(err, result){
-
-   list.innerHTML += '<div class="card"><div class="card-header mb-5"><h3 class="card-title">' + result[1].toString() + '</h3><h5 class="card-category">Current views: ' + result[5].toString() + '</h5></div><div class="card-body"><p>$' + parseInt(result[3].toString(), 10) / parseInt(result[4].toString(), 10) + ' per view</p><br><button class="btn btn-primary btn-block" style="width:20%;">Promote Campaign</button></div></div>';     }) ;
+      urlvar = '"' + result[2] + '"';
+   list.innerHTML += '<div class="card"><div class="card-header mb-5"><h3 class="card-title">' + result[1].toString() + '</h3><h5 class="card-category">Current views: ' + result[5].toString() + '</h5></div><div class="card-body"><p>$' + parseInt(result[3].toString(), 10) / parseInt(result[4].toString(), 10) + ' per view</p><br><inuput cla onclick="updatelink()" class="btn btn-primary btn-block" style="width:20%;" data-toggle="modal" data-target="#uniquelink" >Promote Campaign</button></div></div>';
+      }) ;
   }
  }) ;
 
 });
+
+function updatelink() {
+  var cpypst = document.getElementById("unqid");
+  cpypst.innerHTML = "file:///C:/Users/Arjun%20S/Desktop/SRM%20Hackaathon%20-%20Workspace/Website/redirect.html?l=" + CryptoJS.AES.encrypt('google' , 'not-so-safe-key');
+}

@@ -1,40 +1,5 @@
-const contract_address = "0x5c6f334fa689da645f34b3f89039c9a4c3fd5c2b";
+const contract_address = "0xa20800e128102c5de4cb75ceee213c2c5dc68a4e";
 const abi = [
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_url",
-				"type": "string"
-			},
-			{
-				"name": "_brand",
-				"type": "string"
-			},
-			{
-				"name": "_price",
-				"type": "uint256"
-			},
-			{
-				"name": "_max_views",
-				"type": "uint256"
-			},
-			{
-				"name": "_uid",
-				"type": "uint256"
-			}
-		],
-		"name": "addCampaign",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
 	{
 		"constant": false,
 		"inputs": [
@@ -60,90 +25,9 @@ const abi = [
 	},
 	{
 		"constant": false,
-		"inputs": [
-			{
-				"name": "_uid",
-				"type": "uint256"
-			}
-		],
-		"name": "get_ammount",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
 		"inputs": [],
 		"name": "get_c_num",
 		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_uid",
-				"type": "uint256"
-			}
-		],
-		"name": "get_my_campaign_num",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_i",
-				"type": "uint256"
-			},
-			{
-				"name": "_uid",
-				"type": "uint256"
-			}
-		],
-		"name": "get_my_campaigns",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			},
 			{
 				"name": "",
 				"type": "uint256"
@@ -204,6 +88,81 @@ const abi = [
 				"type": "uint256"
 			}
 		],
+		"name": "get_my_campaigns",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_uid",
+				"type": "uint256"
+			},
+			{
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "takeCampaign",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "user_num",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_i",
+				"type": "uint256"
+			},
+			{
+				"name": "_uid",
+				"type": "uint256"
+			}
+		],
 		"name": "get_taken_campaigns",
 		"outputs": [
 			{
@@ -239,16 +198,17 @@ const abi = [
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_index",
-				"type": "uint256"
-			},
-			{
 				"name": "_uid",
 				"type": "uint256"
 			}
 		],
-		"name": "registerView",
-		"outputs": [],
+		"name": "get_my_campaign_num",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -257,25 +217,36 @@ const abi = [
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_uid",
+				"name": "_url",
+				"type": "string"
+			},
+			{
+				"name": "_brand",
+				"type": "string"
+			},
+			{
+				"name": "_price",
 				"type": "uint256"
 			},
 			{
-				"name": "_index",
+				"name": "_max_views",
+				"type": "uint256"
+			},
+			{
+				"name": "_uid",
 				"type": "uint256"
 			}
 		],
-		"name": "takeCampaign",
-		"outputs": [],
+		"name": "addCampaign",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
-	},
-	{
-		"inputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
 	},
 	{
 		"constant": true,
@@ -292,9 +263,14 @@ const abi = [
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "user_num",
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_uid",
+				"type": "uint256"
+			}
+		],
+		"name": "get_ammount",
 		"outputs": [
 			{
 				"name": "",
@@ -302,8 +278,32 @@ const abi = [
 			}
 		],
 		"payable": false,
-		"stateMutability": "view",
+		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_index",
+				"type": "uint256"
+			},
+			{
+				"name": "_uid",
+				"type": "uint256"
+			}
+		],
+		"name": "registerView",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
 	}
 ];
 
@@ -316,13 +316,14 @@ const transactionObject = {
 
 window.addEventListener("load", function() {
 	url = new URL(window.location.href);
-
+var userid;
 	if(location.search.indexOf('u=')>=0){
-	  if(url.searchParams.get('test') == "2") {
-	   var userid = 2;
+		console.log(url.searchParams.get('u'));
+	  if(url.searchParams.get('u') == "2") {
+	   var  userid = 2;
 }
 	} else {
-	  var userid = 1;
+	   var userid = 1;
 }
 
 if (typeof web3 !== "undefined") {
@@ -335,6 +336,29 @@ new Web3.providers.HttpProvider("http://127.0.0.1:7545")
 var list = document.getElementById("list");
 
 var contract = web3.eth.contract(abi).at(contract_address);
+
+
+if(location.search.indexOf('url=')>=0){
+	console.log("url found");
+	url = new URL(window.location.href);
+
+var link = url.searchParams.get('url');
+var price = parseInt(url.searchParams.get('price'));
+var views = parseInt(url.searchParams.get('views'));
+var brand = url.searchParams.get('brand');
+
+console.log(link + "\n"+ brand+ "\n"+ price+ "\n"+ views+ "\n"+ userid);
+contract.addCampaign.sendTransaction(link, brand, price, views, userid, transactionObject,  function(err, result){
+	console.log(result);
+
+if(result){
+	console.log("Success.");
+} else {
+	window.alert("Insufficient fund in account. Kindly Recharge.");
+}
+	}) ;
+}
+
 contract.get_my_campaign_num.call(userid, function(err, result){
   var g_my_campaign_num = result;
   for(var i=1; i<=g_my_campaign_num; i++){
@@ -346,3 +370,21 @@ contract.get_my_campaign_num.call(userid, function(err, result){
  }) ;
 
 });
+
+function addCampaign() {
+
+var url = document.getElementById("url").value;
+var brand = document.getElementById("brand").value;
+var views = document.getElementById("views").value;
+var price = document.getElementById("price").value;
+console.log(url);
+console.log(encodeURI(url));
+
+
+if(window.location.search.indexOf('?u=2')>=0) {
+	window.location = window.location.host + "?u=2&url=" + encodeURI(url) + "&brand="+encodeURI(brand)+"&views="+encodeURI(views)+"&price="+encodeURI(price);
+} else {
+	window.location =window.location.host + "?url=" + encodeURI(url) + "&brand="+encodeURI(brand)+"&views="+encodeURI(views)+"&price="+encodeURI(price);
+}
+
+}
