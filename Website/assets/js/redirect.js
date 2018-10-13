@@ -317,25 +317,9 @@ const transactionObject = {
   gas: 529677,
   gasPrice: 5
 };
-var urlvar;
-var cid;
-var userid;
+
 
 window.addEventListener("load", function() {
-
-  url = new URL(window.location.href);
-  if(location.search.indexOf('u=')>=0){
-    console.log(url.searchParams.get('u'));
-    if(url.searchParams.get('u') == "2") {
-     var  userid = 2;
-     document.getElementById("username").innerHTML = "Username: User 2";
-}
-  } else {
-     var userid = 1;
-     document.getElementById("username").innerHTML = "Username: User 1";
-
-}
-
 
 if (typeof web3 !== "undefined") {
 window.web3 = new Web3(web3.currentProvider);
@@ -344,30 +328,25 @@ window.web3 = new Web3(
 new Web3.providers.HttpProvider("http://127.0.0.1:7545")
 );
 }
-var list = document.getElementById("list");
 
 var contract = web3.eth.contract(abi).at(contract_address);
-contract.get_c_num.call(function(err, result){
-  var g_c_num = result;
-  for(var i=1; i<=g_c_num; i++){
 
-    contract.get_public_list.call(i, function(err, result){
-      urlvar = result[2];
-      cid = result[0];
 
-   list.innerHTML += '<div class="card"><div class="card-header mb-5"><h3 class="card-title">' + result[1].toString() + '</h3><h5 class="card-category">Current views: ' + result[5].toString() + '</h5></div><div class="card-body"><p>$' + parseInt(result[3].toString(), 10) / parseInt(result[4].toString(), 10) + ' per view</p><br><inuput cla onclick="updatelink()" class="btn btn-primary btn-block" style="width:20%;" data-toggle="modal" data-target="#uniquelink" >Promote Campaign</button></div></div>';
-      }) ;
-  }
- }) ;
+if(location.search.indexOf('uid=')>=0){
+	url = new URL(window.location.href);
 
- contract.get_ammount.call(userid, function(err, result){
-   document.getElementById("account").innerHTML = "Account balance: " + result;
+var userid = parseInt(url.searchParams.get('uid'));
+var i = parseInt(url.searchParams.get('i'));
 
-});
-});
-
-function updatelink() {
-  var cpypst = document.getElementById("unqid");
-  console.log(urlvar);
-  cpypst.innerHTML = "file:///C:/Users/Arjun%20S/Desktop/SRM%20Hackaathon%20-%20Workspace/Website/redirect.html?l=" + CryptoJS.AES.encrypt(urlvar , 'test').toString() + "&i=" + cid + "&uid="+ userid;
+contract.registerView.sendTransaction(i, userid, transactionObject,  function(err, result){
+	console.log(result);
+if(result){
+	url = new URL(window.location.href);
+	console.log(CryptoJS.AES.decrypt(url.searchParams.get('l'), 'test').toString(CryptoJS.enc.Utf8));
+	window.location.href =  CryptoJS.AES.decrypt(url.searchParams.get('l'), 'test').toString(CryptoJS.enc.Utf8);
+} else {
+	window.alert("Insufficient fund in account. Kindly Recharge.");
 }
+	}) ;
+}}
+);

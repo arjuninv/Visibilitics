@@ -1,4 +1,4 @@
-const contract_address = "0xa20800e128102c5de4cb75ceee213c2c5dc68a4e";
+const contract_address = "0x870759f215eb4e036a014713060846897aeb88a9";
 const abi = [
 	{
 		"constant": false,
@@ -294,7 +294,12 @@ const abi = [
 			}
 		],
 		"name": "registerView",
-		"outputs": [],
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -321,9 +326,13 @@ var userid;
 		console.log(url.searchParams.get('u'));
 	  if(url.searchParams.get('u') == "2") {
 	   var  userid = 2;
+		 document.getElementById("username").innerHTML = "Username: User 2";
+
 }
 	} else {
 	   var userid = 1;
+		 document.getElementById("username").innerHTML = "Username: User 1";
+
 }
 
 if (typeof web3 !== "undefined") {
@@ -358,7 +367,10 @@ if(result){
 }
 	}) ;
 }
+contract.get_ammount.call(userid, function(err, result){
+	document.getElementById("account").innerHTML = "Account balance: " + result;
 
+});
 contract.get_my_campaign_num.call(userid, function(err, result){
   var g_my_campaign_num = result;
   for(var i=1; i<=g_my_campaign_num; i++){
