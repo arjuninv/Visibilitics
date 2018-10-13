@@ -17,16 +17,7 @@ if(urlParams.has('u')){
   u2.style.textDecoration = "none";;
 }
 */
-
-input.addEventListener("keyup", function(event) {
-  event.preventDefault();
-  if (event.keyCode === 13) {
-    $('#searchModal').modal('hide');
-    load();
-  }
 });
-});
-
 
 function load() {
   /*

@@ -34,6 +34,9 @@ contract Main {
     mapping (uint => Campaign) public_list;
     mapping (uint => user_data) users;
 
+
+
+
 function get_c_num() public returns (uint) {
     return c_num;
 }
@@ -68,8 +71,8 @@ function get_taken_campaigns(uint _i, uint _uid) public returns (uint, string, s
  function Main () public {
     c_num = 0;
     user_num=0;  // Hard coded for demo purpose
-    createUser("User 1", 100); // Hard coded for demo purpose
-    createUser("User 2", 50); // Hard coded for demo purpose
+    createUser("User 1", 5000); // Hard coded for demo purpose
+    createUser("User 2", 10); // Hard coded for demo purpose
   }
 
   function addCampaign (string _url,string _brand,uint _price,uint _max_views, uint _uid) public returns (bool){
@@ -86,7 +89,7 @@ function get_taken_campaigns(uint _i, uint _uid) public returns (uint, string, s
       }
   }
 
-  function registerView(uint _index, uint _uid) public {
+  function registerView(uint _index, uint _uid) public returns (bool) {
       public_list[_index].current_views += 1;
       users[_uid].ammount += public_list[_index].price / public_list[_index].max_views;
 
@@ -95,6 +98,7 @@ function get_taken_campaigns(uint _i, uint _uid) public returns (uint, string, s
           users[_uid].my_campaign[i].views += 1;
         }
       }
+      return true;
   }
 
   function createUser(string _name, uint _ammount) public returns (uint) {
