@@ -1,5 +1,5 @@
-const contract_address = "0xa996e9d9beb38ae03c46c912b03bbec0029d0613";
-const abi = [
+const contract_address = "0xb3b5db3a12318c865f3b1170ab2cf13fe0f02243";
+const abi =[
 	{
 		"constant": false,
 		"inputs": [
@@ -396,5 +396,5 @@ function updatelink() {
 		code = CryptoJS.AES.encrypt(urlvar , "kie").toString();
 	}
 	console.log(CryptoJS.AES.decrypt(code, "kie").toString(CryptoJS.enc.Utf8));
-  cpypst.innerHTML = window.location.host + "?l=" + code + "&i=" + cid + "&uid="+ window.userid;
+  cpypst.innerHTML = "file:///C:/Users/Arjun%20S/Desktop/SRM%20Hackaathon%20-%20Workspace/Website/redirect.html" + "?l=" + code + "&i=" + cid + "&uid="+ window.userid;
 }

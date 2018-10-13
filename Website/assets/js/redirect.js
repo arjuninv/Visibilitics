@@ -1,4 +1,4 @@
-const contract_address = "0xa996e9d9beb38ae03c46c912b03bbec0029d0613";
+const contract_address = "0xb3b5db3a12318c865f3b1170ab2cf13fe0f02243";
 const abi = [
 	{
 		"constant": false,
@@ -333,7 +333,7 @@ if (typeof web3 !== "undefined") {
 window.web3 = new Web3(web3.currentProvider);
 } else {
 window.web3 = new Web3(
-new Web3.providers.HttpProvider("http://127.0.0.1:7545")
+new Web3.providers.HttpProvider("HTTP://10.4.61.33:7545")
 );
 }
 

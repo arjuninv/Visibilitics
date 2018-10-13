@@ -50,8 +50,12 @@ function get_my_campaign_num(uint _uid) public returns (uint) {
     return users[_uid].my_campaign_num;
 }
 
-function get_public_list(uint _i) public returns (uint, string, string, uint, uint, uint){
-    return (public_list[_i].cid,public_list[_i].brand, public_list[_i].url, public_list[_i].price, public_list[_i].max_views, public_list[_i].current_views );
+function get_public_list(uint _i, uint _uid) public returns (uint, string, string, uint, uint, uint, uint){
+    uint temp = 1;
+    for(uint i=1; i<users[_i].my_campaign_num; i++) {
+        if(users[_i].my_campaign[i].index == _i) {temp = 0;}
+    }
+    return (public_list[_i].cid,public_list[_i].brand, public_list[_i].url, public_list[_i].price, public_list[_i].max_views, public_list[_i].current_views, temp);
 }
 
 function get_my_campaigns(uint _i, uint _uid) public returns (uint, string, string, uint, uint, uint){
