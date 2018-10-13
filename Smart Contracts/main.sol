@@ -42,7 +42,7 @@ function get_c_num() public returns (uint) {
 }
 
 function get_ammount(uint _uid) public returns (uint) {
-    return users[_uid].ammount;
+    return users[_uid].ammount / 1000;
 }
 
 
@@ -52,10 +52,12 @@ function get_my_campaign_num(uint _uid) public returns (uint) {
 
 function get_public_list(uint _i, uint _uid) public returns (uint, string, string, uint, uint, uint, uint){
     uint temp = 1;
-    for(uint i=1; i<users[_i].my_campaign_num; i++) {
-        if(users[_i].my_campaign[i].index == _i) {temp = 0;}
+    for(uint i=1; i<=users[_uid].my_campaign_num; i++) {
+        if(users[_uid].my_campaign[i].index == _i) {temp = 0;}
     }
-    return (public_list[_i].cid,public_list[_i].brand, public_list[_i].url, public_list[_i].price, public_list[_i].max_views, public_list[_i].current_views, temp);
+    Campaign t;
+    t = public_list[_i];
+    return (t.cid,t.brand, t.url, t.price, t.max_views, t.current_views, temp);
 }
 
 function get_my_campaigns(uint _i, uint _uid) public returns (uint, string, string, uint, uint, uint){
@@ -75,8 +77,8 @@ function get_taken_campaigns(uint _i, uint _uid) public returns (uint, string, s
  function Main () public {
     c_num = 0;
     user_num=0;  // Hard coded for demo purpose
-    createUser("User 1", 5000); // Hard coded for demo purpose
-    createUser("User 2", 10); // Hard coded for demo purpose
+    createUser("User 1", 5000* 1000); // Hard coded for demo purpose
+    createUser("User 2", 10 * 1000); // Hard coded for demo purpose
   }
 
   function addCampaign (string _url,string _brand,uint _price,uint _max_views, uint _uid) public returns (bool){
@@ -86,16 +88,16 @@ function get_taken_campaigns(uint _i, uint _uid) public returns (uint, string, s
       users[_uid].my_campaign_num +=1;
       users[_uid].my_campaign[users[_uid].my_campaign_num].index = c_num;
       users[_uid].my_campaign[users[_uid].my_campaign_num].views = 0;
-      users[_uid].ammount -= _price;
+      users[_uid].ammount -= _price * 1000;
       return true;
       } else {
-          return false;
+         return false;
       }
   }
 
   function registerView(uint _index, uint _uid) public returns (bool) {
       public_list[_index].current_views += 1;
-      users[_uid].ammount += public_list[_index].price / public_list[_index].max_views;
+      users[_uid].ammount += public_list[_index].price * 1000 / public_list[_index].max_views;
 
       for(uint i=1; i<users[_uid].taken_campaign_num; i++){
         if(users[_uid].my_campaign[i].index == _index) {
